@@ -30,7 +30,7 @@ export default {
         };
 
         window.vueRecaptchaApiLoaded =  vueRecaptchaApiLoaded
-        //
+        
         // const script = document.createElement('script')
         // script.id = 'recaptchascrpitid'
         // script.src = `https://www.google.com/recaptcha/enterprise.js?onload=vueRecaptchaApiLoaded&render=explicit`

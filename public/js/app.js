@@ -5292,8 +5292,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    window.vueRecaptchaApiLoaded = vueRecaptchaApiLoaded; //
-    // const script = document.createElement('script')
+    window.vueRecaptchaApiLoaded = vueRecaptchaApiLoaded; // const script = document.createElement('script')
     // script.id = 'recaptchascrpitid'
     // script.src = `https://www.google.com/recaptcha/enterprise.js?onload=vueRecaptchaApiLoaded&render=explicit`
     // script.async = true
