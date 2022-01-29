@@ -6,10 +6,38 @@
 
 <script>
 export default {
+    // data() {
+    //     dd:Object.prototype.hasOwnProperty.call(window, 'grecaptcha')
+    // },
+    //
+    // // computed : {
+    // //     dd() {
+    // //         return
+    // //     }
+    // // },
+    //
+    // watch: {
+    //   dd() {
+    //       console.log("here come 222")
+    //   }
+    // },
+
     mounted() {
-        grecaptcha.enterprise.render('g-recaptcha', {
-            'sitekey' : '6LcaPDgeAAAAAPvMCsGRx1PVL3n1XOR9RK8kDnek',
-        });
+        var vueRecaptchaApiLoaded = function() {
+            grecaptcha.enterprise.render('g-recaptcha', {
+                'sitekey' : process.env.MIX_RECAPTCHA_SITE_KEY
+            });
+        };
+
+        window.vueRecaptchaApiLoaded =  vueRecaptchaApiLoaded
+        //
+        // const script = document.createElement('script')
+        // script.id = 'recaptchascrpitid'
+        // script.src = `https://www.google.com/recaptcha/enterprise.js?onload=vueRecaptchaApiLoaded&render=explicit`
+        // script.async = true
+        // script.defer = true
+        //
+        // document.head.appendChild(script)
     },
 }
 </script>

@@ -20,6 +20,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('home', require('./components/Home.vue').default);
+Vue.component('captcha', require('./components/Captcha.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,3 +31,11 @@ Vue.component('home', require('./components/Home.vue').default);
 const app = new Vue({
     el: '#app',
 });
+
+console.log("ssssww")
+    var onloadCallback = function() {
+        console.log("ssss")
+        grecaptcha.enterprise.render('g-recaptcha', {
+            'sitekey' : '6LcaPDgeAAAAAPvMCsGRx1PVL3n1XOR9RK8kDnek',
+        });
+      };

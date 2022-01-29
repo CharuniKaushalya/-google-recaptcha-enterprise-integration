@@ -5262,6 +5262,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 //
 //
 //
@@ -5269,10 +5270,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  // data() {
+  //     dd:Object.prototype.hasOwnProperty.call(window, 'grecaptcha')
+  // },
+  //
+  // // computed : {
+  // //     dd() {
+  // //         return
+  // //     }
+  // // },
+  //
+  // watch: {
+  //   dd() {
+  //       console.log("here come 222")
+  //   }
+  // },
   mounted: function mounted() {
-    grecaptcha.enterprise.render('g-recaptcha', {
-      'sitekey': '6LcaPDgeAAAAAPvMCsGRx1PVL3n1XOR9RK8kDnek'
-    });
+    var vueRecaptchaApiLoaded = function vueRecaptchaApiLoaded() {
+      grecaptcha.enterprise.render('g-recaptcha', {
+        'sitekey': process.env.MIX_RECAPTCHA_SITE_KEY
+      });
+    };
+
+    window.vueRecaptchaApiLoaded = vueRecaptchaApiLoaded; //
+    // const script = document.createElement('script')
+    // script.id = 'recaptchascrpitid'
+    // script.src = `https://www.google.com/recaptcha/enterprise.js?onload=vueRecaptchaApiLoaded&render=explicit`
+    // script.async = true
+    // script.defer = true
+    //
+    // document.head.appendChild(script)
   }
 });
 
@@ -5343,6 +5370,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('home', (__webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"]));
+Vue.component('captcha', (__webpack_require__(/*! ./components/Captcha.vue */ "./resources/js/components/Captcha.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -5352,6 +5380,14 @@ Vue.component('home', (__webpack_require__(/*! ./components/Home.vue */ "./resou
 var app = new Vue({
   el: '#app'
 });
+console.log("ssssww");
+
+var onloadCallback = function onloadCallback() {
+  console.log("ssss");
+  grecaptcha.enterprise.render('g-recaptcha', {
+    'sitekey': '6LcaPDgeAAAAAPvMCsGRx1PVL3n1XOR9RK8kDnek'
+  });
+};
 
 /***/ }),
 
