@@ -15,6 +15,7 @@
     <div id="app">
     <home />
     </div>
+    <script src="https://www.google.com/recaptcha/enterprise.js"></script>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>
 
